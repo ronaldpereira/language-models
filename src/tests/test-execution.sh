@@ -41,6 +41,22 @@ if [ ! -e trained-models/cbow4.bin ]; then
     ./word2vec -train input/text8 -output trained-models/cbow4.bin -cbow 1 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
+if [ ! -e trained-models/cbow5.bin ]; then
+    ./word2vec -train input/text8-20 -output trained-models/cbow5.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/cbow6.bin ]; then
+    ./word2vec -train input/text8-40 -output trained-models/cbow6.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/cbow7.bin ]; then
+    ./word2vec -train input/text8-60 -output trained-models/cbow7.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/cbow8.bin ]; then
+    ./word2vec -train input/text8-80 -output trained-models/cbow8.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
 if [ ! -e trained-models/skip1.bin ]; then
     ./word2vec -train input/text8 -output trained-models/skip1.bin -cbow 0 -size 200 -window 2 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
@@ -56,6 +72,23 @@ fi
 if [ ! -e trained-models/skip4.bin ]; then
     ./word2vec -train input/text8 -output trained-models/skip4.bin -cbow 0 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
+
+if [ ! -e trained-models/skip5.bin ]; then
+    ./word2vec -train input/text8-20 -output trained-models/skip5.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/skip6.bin ]; then
+    ./word2vec -train input/text8-40 -output trained-models/skip6.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/skip7.bin ]; then
+    ./word2vec -train input/text8-60 -output trained-models/skip7.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
+if [ ! -e trained-models/skip8.bin ]; then
+    ./word2vec -train input/text8-80 -output trained-models/skip8.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+fi
+
 
 echo 'Finished training models'
 
