@@ -17,10 +17,10 @@ cd ../tests
 python3 corpus-splitter.py
 cd ../word2vec
 
+echo 'Finished splitting corpus into different percentages'
+
 mkdir -p trained-models/
 mkdir -p output/
-
-echo 'Finished splitting corpus into different percentages'
 
 echo 'Training models...'
 if [ ! -e trained-models/cbow1.bin ]; then
