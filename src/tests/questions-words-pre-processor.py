@@ -10,7 +10,7 @@ with open('../word2vec/questions-words.txt', 'r') as questionWords, open('../wor
 
             inputFile.write(" ".join(lineSplitted)  + '\n')
 
-    inputFile.write('EXIT')
+    inputFile.write('EXIT\n')
 
     inputFile.close()
     output.close()
