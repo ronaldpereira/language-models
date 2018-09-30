@@ -11,16 +11,13 @@ for perc in percentages:
         totalCorpusSplitted = totalCorpusLines.split()
         totalCorpusSize = len(totalCorpusSplitted)
 
-        print(totalCorpusSize)
-
         percCorpus = []
         while len(percCorpus) < math.ceil(perc * totalCorpusSize):
             percCorpus.extend(totalCorpusSplitted[:math.ceil(perc * totalCorpusSize)])
 
-        print(len(percCorpus))
         percCorpusJoined = " ".join(percCorpus)
 
-        with open('../word2vec/input/text8-'+str(perc * 100), 'w') as percText:
+        with open('../word2vec/input/text8-'+str(int(perc * 100)), 'w') as percText:
             percText.write(percCorpusJoined)
             percText.close()
 
