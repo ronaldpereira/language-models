@@ -4,45 +4,57 @@ cd ../word2vec
 
 make
 
-if [ ! -e text8 ]; then
+if [ ! -e input/text8 ]; then
     wget http://mattmahoney.net/dc/text8.zip -O text8.gz
     gzip -d text8.gz -f
+    mkdir -p input/
+    mv text8 input/text8
+fi
+
+echo 'Splitting corpus into different percentages...'
+
+if [ ! -e input/text8-* ]; then
+    cd ../tests
+    python3 corpus-splitter.py
+    cd ../word2vec
 fi
 
 mkdir -p trained-models/
 mkdir -p output/
 
+echo 'Finished splitting corpus into different percentages'
+
 echo 'Training models...'
 if [ ! -e trained-models/cbow1.bin ]; then
-    ./word2vec -train text8 -output trained-models/cbow1.bin -cbow 1 -size 200 -window 2 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/cbow1.bin -cbow 1 -size 200 -window 2 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/cbow2.bin ]; then
-    ./word2vec -train text8 -output trained-models/cbow2.bin -cbow 1 -size 200 -window 5 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/cbow2.bin -cbow 1 -size 200 -window 5 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/cbow3.bin ]; then
-    ./word2vec -train text8 -output trained-models/cbow3.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/cbow3.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/cbow4.bin ]; then
-    ./word2vec -train text8 -output trained-models/cbow4.bin -cbow 1 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/cbow4.bin -cbow 1 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/skip1.bin ]; then
-    ./word2vec -train text8 -output trained-models/skip1.bin -cbow 0 -size 200 -window 2 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/skip1.bin -cbow 0 -size 200 -window 2 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/skip2.bin ]; then
-    ./word2vec -train text8 -output trained-models/skip2.bin -cbow 0 -size 200 -window 5 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/skip2.bin -cbow 0 -size 200 -window 5 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/skip3.bin ]; then
-    ./word2vec -train text8 -output trained-models/skip3.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/skip3.bin -cbow 0 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 if [ ! -e trained-models/skip4.bin ]; then
-    ./word2vec -train text8 -output trained-models/skip4.bin -cbow 0 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
+    ./word2vec -train input/text8 -output trained-models/skip4.bin -cbow 0 -size 200 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 fi
 
 echo 'Finished training models'
