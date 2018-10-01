@@ -20,7 +20,6 @@ def compareWordsAndDistances(words, wordsAndDistances):
     return -1
 
 outputs = ['cbow' + str(i) for i in range(1,9)] + ['skip' + str(i) for i in range(1,9)]
-# outputs = ['test']
 
 for output in outputs:
     with open('../word2vec/output/'+ output +'.txt') as rawOutput:
