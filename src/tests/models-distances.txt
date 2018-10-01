@@ -1,0 +1,48 @@
+***Stats for cbow1***
+Number of matches: 12179
+Distances Mean: 0.030189668281468098
+***Stats for cbow2***
+Number of matches: 14302
+Distances Mean: 0.026119150818067406
+***Stats for cbow3***
+Number of matches: 14557
+Distances Mean: 0.026122141718760736
+***Stats for cbow4***
+Number of matches: 14393
+Distances Mean: 0.02647564190926145
+***Stats for cbow5***
+Number of matches: 6883
+Distances Mean: 0.04090537440069737
+***Stats for cbow6***
+Number of matches: 9847
+Distances Mean: 0.0330826757388037
+***Stats for cbow7***
+Number of matches: 11661
+Distances Mean: 0.03022610608009605
+***Stats for cbow8***
+Number of matches: 12979
+Distances Mean: 0.02731077324909469
+***Stats for skip1***
+Number of matches: 11610
+Distances Mean: 0.021949765633074936
+***Stats for skip2***
+Number of matches: 13120
+Distances Mean: 0.021862078734756096
+***Stats for skip3***
+Number of matches: 13576
+Distances Mean: 0.02249690483205657
+***Stats for skip4***
+Number of matches: 13838
+Distances Mean: 0.02238789239774534
+***Stats for skip5***
+Number of matches: 5745
+Distances Mean: 0.035732653089643164
+***Stats for skip6***
+Number of matches: 8949
+Distances Mean: 0.02912005453123254
+***Stats for skip7***
+Number of matches: 10822
+Distances Mean: 0.025509638883755313
+***Stats for skip8***
+Number of matches: 12069
+Distances Mean: 0.02419298608003977
