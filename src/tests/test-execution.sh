@@ -11,13 +11,14 @@ if [ ! -e input/text8 ]; then
     mv text8 input/text8
 fi
 
-echo 'Splitting corpus into different percentages...'
+if [ ! -e input/text8-20 ]; then
+    echo 'Splitting corpus into different percentages...'
+    cd ../tests
+    python3 corpus-splitter.py
+    cd ../word2vec
+    echo 'Finished splitting corpus into different percentages'
+fi
 
-cd ../tests
-python3 corpus-splitter.py
-cd ../word2vec
-
-echo 'Finished splitting corpus into different percentages'
 
 mkdir -p trained-models/
 mkdir -p output/
@@ -105,66 +106,105 @@ fi
 
 echo 'Finished training models'
 
-echo 'Executing question-words pre-processor...'
+if [ ! -e input/questions-words-lower-input.txt ]; then
+    echo 'Executing question-words pre-processor...'
+    cd ../tests
+    python3 questions-words-pre-processor.py
+    cd ../word2vec
+    echo 'Finished question-words pre-processor'
+fi
 
-cd ../tests
-python3 questions-words-pre-processor.py
-cd ../word2vec
-
-echo 'Finished question-words pre-processor'
 
 echo 'Executing word-analogy tests...'
 
-echo 'cbow1 word-analogy test...'
-./word-analogy trained-models/cbow1.bin < input/questions-words-lower-input.txt > output/cbow1.txt
+if [ ! -e output/cbow1.txt ]; then
+    echo 'cbow1 word-analogy test...'
+    ./word-analogy trained-models/cbow1.bin < input/questions-words-lower-input.txt > output/cbow1.txt
+fi
 
-echo 'cbow2 word-analogy test...'
-./word-analogy trained-models/cbow2.bin < input/questions-words-lower-input.txt > output/cbow2.txt
+if [ ! -e output/cbow2.txt ]; then
+    echo 'cbow2 word-analogy test...'
+    ./word-analogy trained-models/cbow2.bin < input/questions-words-lower-input.txt > output/cbow2.txt
+fi
 
-echo 'cbow3 word-analogy test...'
-./word-analogy trained-models/cbow3.bin < input/questions-words-lower-input.txt > output/cbow3.txt
+if [ ! -e output/cbow3.txt ]; then
+    echo 'cbow3 word-analogy test...'
+    ./word-analogy trained-models/cbow3.bin < input/questions-words-lower-input.txt > output/cbow3.txt
+fi
 
-echo 'cbow4 word-analogy test...'
-./word-analogy trained-models/cbow4.bin < input/questions-words-lower-input.txt > output/cbow4.txt
+if [ ! -e output/cbow4.txt ]; then
+    echo 'cbow4 word-analogy test...'
+    ./word-analogy trained-models/cbow4.bin < input/questions-words-lower-input.txt > output/cbow4.txt
+fi
 
-echo 'cbow5 word-analogy test...'
-./word-analogy trained-models/cbow5.bin < input/questions-words-lower-input.txt > output/cbow5.txt
+if [ ! -e output/cbow5.txt ]; then
+    echo 'cbow5 word-analogy test...'
+    ./word-analogy trained-models/cbow5.bin < input/questions-words-lower-input.txt > output/cbow5.txt
+fi
 
-echo 'cbow6 word-analogy test...'
-./word-analogy trained-models/cbow6.bin < input/questions-words-lower-input.txt > output/cbow6.txt
+if [ ! -e output/cbow6.txt ]; then
+    echo 'cbow6 word-analogy test...'
+    ./word-analogy trained-models/cbow6.bin < input/questions-words-lower-input.txt > output/cbow6.txt
+fi
 
-echo 'cbow7 word-analogy test...'
-./word-analogy trained-models/cbow7.bin < input/questions-words-lower-input.txt > output/cbow7.txt
+if [ ! -e output/cbow7.txt ]; then
+    echo 'cbow7 word-analogy test...'
+    ./word-analogy trained-models/cbow7.bin < input/questions-words-lower-input.txt > output/cbow7.txt
+fi
 
-echo 'cbow8 word-analogy test...'
-./word-analogy trained-models/cbow8.bin < input/questions-words-lower-input.txt > output/cbow8.txt
+if [ ! -e output/cbow8.txt ]; then
+    echo 'cbow8 word-analogy test...'
+    ./word-analogy trained-models/cbow8.bin < input/questions-words-lower-input.txt > output/cbow8.txt
+fi
 
-echo 'skip1 word-analogy test...'
-./word-analogy trained-models/skip1.bin < input/questions-words-lower-input.txt > output/skip1.txt
+if [ ! -e output/skip1.txt ]; then
+    echo 'skip1 word-analogy test...'
+    ./word-analogy trained-models/skip1.bin < input/questions-words-lower-input.txt > output/skip1.txt
+fi
 
-echo 'skip2 word-analogy test...'
-./word-analogy trained-models/skip2.bin < input/questions-words-lower-input.txt > output/skip2.txt
+if [ ! -e output/skip2.txt ]; then
+    echo 'skip2 word-analogy test...'
+    ./word-analogy trained-models/skip2.bin < input/questions-words-lower-input.txt > output/skip2.txt
+fi
 
-echo 'skip3 word-analogy test...'
-./word-analogy trained-models/skip3.bin < input/questions-words-lower-input.txt > output/skip3.txt
+if [ ! -e output/skip3.txt ]; then
+    echo 'skip3 word-analogy test...'
+    ./word-analogy trained-models/skip3.bin < input/questions-words-lower-input.txt > output/skip3.txt
+fi
 
-echo 'skip4 word-analogy test...'
-./word-analogy trained-models/skip4.bin < input/questions-words-lower-input.txt > output/skip4.txt
+if [ ! -e output/skip4.txt ]; then
+    echo 'skip4 word-analogy test...'
+    ./word-analogy trained-models/skip4.bin < input/questions-words-lower-input.txt > output/skip4.txt
+fi
 
-echo 'skip5 word-analogy test...'
-./word-analogy trained-models/skip5.bin < input/questions-words-lower-input.txt > output/skip5.txt
+if [ ! -e output/skip5.txt ]; then
+    echo 'skip5 word-analogy test...'
+    ./word-analogy trained-models/skip5.bin < input/questions-words-lower-input.txt > output/skip5.txt
+fi
 
-echo 'skip6 word-analogy test...'
-./word-analogy trained-models/skip6.bin < input/questions-words-lower-input.txt > output/skip6.txt
+if [ ! -e output/skip6.txt ]; then
+    echo 'skip6 word-analogy test...'
+    ./word-analogy trained-models/skip6.bin < input/questions-words-lower-input.txt > output/skip6.txt
+fi
 
-echo 'skip7 word-analogy test...'
-./word-analogy trained-models/skip7.bin < input/questions-words-lower-input.txt > output/skip7.txt
+if [ ! -e output/skip7.txt ]; then
+    echo 'skip7 word-analogy test...'
+    ./word-analogy trained-models/skip7.bin < input/questions-words-lower-input.txt > output/skip7.txt
+fi
 
-echo 'skip8 word-analogy test...'
-./word-analogy trained-models/skip8.bin < input/questions-words-lower-input.txt > output/skip8.txt
+if [ ! -e output/skip8.txt ]; then
+    echo 'skip8 word-analogy test...'
+    ./word-analogy trained-models/skip8.bin < input/questions-words-lower-input.txt > output/skip8.txt
+fi
 
 echo 'Finished word-analogy tests'
 
 make clean
 
 cd ../tests
+
+if [ ! -e models-distances.txt ]; then
+    echo 'Calculating models distances...'
+    python3 models-distances.py > models-distances.txt
+    echo 'Finished calculating models distances'
+fi
